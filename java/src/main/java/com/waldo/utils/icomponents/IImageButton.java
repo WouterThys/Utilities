@@ -2,9 +2,9 @@ package com.waldo.utils.icomponents;
 
 import javax.swing.*;
 
-class IImageButton extends JButton { //} implements ChangeListener {
+public class IImageButton extends JButton { //} implements ChangeListener {
 
-    IImageButton(ImageIcon activeIcon, ImageIcon rollOverIcon, ImageIcon pressedIcon, ImageIcon disabledIcon) {
+    public IImageButton(ImageIcon activeIcon, ImageIcon rollOverIcon, ImageIcon pressedIcon, ImageIcon disabledIcon) {
         super();
 
         setContentAreaFilled(false);

@@ -9,6 +9,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.net.URISyntaxException;
 import java.net.URL;
+import java.nio.file.Path;
 import java.util.Properties;
 
 public class ResourceManager {
@@ -130,6 +131,16 @@ public class ResourceManager {
             }
         }
         return null;
+    }
+
+    public ImageIcon readImage(Path path) throws IOException {
+        URL url = path.toUri().toURL();
+        return new ImageIcon(ImageIO.read(url));
+    }
+
+    public ImageIcon readImage(Path path, int width, int height) throws Exception {
+        URL url = path.toUri().toURL();
+        return readImage(url, width, height);
     }
 
     public ImageIcon readImage(URL resourceURL, int width, int height) throws Exception {

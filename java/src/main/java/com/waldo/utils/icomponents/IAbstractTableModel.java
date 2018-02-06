@@ -16,19 +16,19 @@ public abstract class IAbstractTableModel<T> extends AbstractTableModel {
 
     private List<T> itemList;
 
-    IAbstractTableModel(String[] columnNames, Class[] columnClasses, String[] columnHeaderToolTips) {
+    protected IAbstractTableModel(String[] columnNames, Class[] columnClasses, String[] columnHeaderToolTips) {
         this(columnNames, columnClasses);
         this.columnHeaderToolTips = columnHeaderToolTips;
     }
 
-    IAbstractTableModel(String[] columnNames, Class[] columnClasses) {
+    protected IAbstractTableModel(String[] columnNames, Class[] columnClasses) {
         this.columnNames = columnNames;
         this.columnClasses = columnClasses;
         this.columnHeaderToolTips = columnNames;
         itemList = new ArrayList<>();
     }
 
-    IAbstractTableModel(String[] columnNames, Class[] columnClasses, Comparator<? super T> comparator) {
+    protected IAbstractTableModel(String[] columnNames, Class[] columnClasses, Comparator<? super T> comparator) {
         this.columnNames = columnNames;
         this.columnClasses = columnClasses;
         this.columnHeaderToolTips = columnNames;
@@ -36,14 +36,14 @@ public abstract class IAbstractTableModel<T> extends AbstractTableModel {
         itemList = new ArrayList<>();
     }
 
-    IAbstractTableModel(String[] columnNames, Class[] columnClasses, List<T> itemList) {
+    protected IAbstractTableModel(String[] columnNames, Class[] columnClasses, List<T> itemList) {
         this.columnNames = columnNames;
         this.columnClasses = columnClasses;
         this.columnHeaderToolTips = columnNames;
         setItemList(itemList);
     }
 
-    IAbstractTableModel(String[] columnNames, Class[] columnClasses, List<T> itemList, Comparator<? super T> comparator) {
+    protected IAbstractTableModel(String[] columnNames, Class[] columnClasses, List<T> itemList, Comparator<? super T> comparator) {
         this.columnNames = columnNames;
         this.columnClasses = columnClasses;
         this.columnHeaderToolTips = columnNames;
@@ -131,7 +131,7 @@ public abstract class IAbstractTableModel<T> extends AbstractTableModel {
         return itemList;
     }
 
-    T getItemAt(int index) {
+    public T getItemAt(int index) {
         if (index >= 0 && index < itemList.size()) {
             return itemList.get(index);
         }
