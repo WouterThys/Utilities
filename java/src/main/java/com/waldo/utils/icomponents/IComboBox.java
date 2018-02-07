@@ -97,6 +97,14 @@ public class IComboBox<E> extends JComboBox<E> {
         this.fieldName = fieldName;
     }
 
+    public boolean isSelecting() {
+        return selecting;
+    }
+
+    public void setSelecting(boolean selecting) {
+        this.selecting = selecting;
+    }
+
     private void setFieldClass(Class fieldClass) {
         this.fieldClass = fieldClass;
     }
