@@ -6,7 +6,7 @@
 
     <groupId>com.waldo.utils</groupId>
     <artifactId>Utilities</artifactId>
-    <version>1.0</version>
+    <version>1.4</version>
     <build>
         <plugins>
             <plugin>
