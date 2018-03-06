@@ -3,27 +3,27 @@ package com.waldo.utils.icomponents;
 import javax.swing.*;
 import java.awt.*;
 
-public class ITableIcon extends ILabel {
+public class ITableLabel extends ILabel {
 
     private final ILabel textLabel = new ILabel("");
     private boolean hasIcon = true;
 
-    public ITableIcon(Color background) {
+    public ITableLabel(Color background) {
         this(background, 0, true, null, "");
     }
 
-    public ITableIcon(Color background, int row, boolean isSelected, ImageIcon icon) {
+    public ITableLabel(Color background, int row, boolean isSelected, ImageIcon icon) {
         this(background, row, isSelected, icon, "");
     }
 
-    public ITableIcon(Color background, int row, boolean isSelected, String txt) {
+    public ITableLabel(Color background, int row, boolean isSelected, String txt) {
         super(txt);
         updateBackground(background, row, isSelected);
         hasIcon = false;
         super.setOpaque(true);
     }
 
-    public ITableIcon(Color background, int row, boolean isSelected, ImageIcon icon, String txt) {
+    public ITableLabel(Color background, int row, boolean isSelected, ImageIcon icon, String txt) {
         super(icon);
         createTextLabel(txt);
         updateBackground(background, row, isSelected);
@@ -41,7 +41,7 @@ public class ITableIcon extends ILabel {
         textLabel.setOpaque(false);
     }
 
-    private void updateBackground(Color background, int row, boolean isSelected) {
+    public void updateBackground(Color background, int row, boolean isSelected) {
         if (row % 2 == 1 || isSelected) {
             super.setBackground(background);
         } else {

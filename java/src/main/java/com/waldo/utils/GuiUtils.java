@@ -2,16 +2,7 @@ package com.waldo.utils;
 
 import javax.swing.*;
 import javax.swing.border.TitledBorder;
-import javax.swing.event.ChangeEvent;
-import javax.swing.event.ChangeListener;
 import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-import java.awt.event.ItemEvent;
-import java.awt.event.ItemListener;
-import java.io.File;
-import java.io.IOException;
-import java.util.ArrayList;
 
 import static java.awt.GridBagConstraints.BOTH;
 
@@ -213,6 +204,31 @@ public class GuiUtils {
             gridwidth = 1;
             this.fill = GridBagConstraints.NONE;
             panel.add(new JLabel(labelIcon, JLabel.RIGHT), this);
+
+            gridwidth = oldGw;
+            gridheight = oldGh;
+            gridx = 1; weightx = 1;
+            this.fill = fill;
+            if (component != null) {
+                panel.add(component, this);
+            }
+
+
+            gridx = 0; gridy++;
+        }
+
+        public void addLine(JLabel label, JComponent component) {
+            addLine(label, component, GridBagConstraints.HORIZONTAL);
+        }
+
+        public void addLine(JLabel label, JComponent component, int fill) {
+            int oldGw = gridwidth;
+            int oldGh = gridheight;
+
+            weightx = 0; weighty = 0;
+            gridwidth = 1;
+            this.fill = GridBagConstraints.NONE;
+            panel.add(label, this);
 
             gridwidth = oldGw;
             gridheight = oldGh;
