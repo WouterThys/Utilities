@@ -35,4 +35,8 @@ public class ITableBallPanel extends JPanel {
         textLabel.setText(text);
     }
 
+    public void setForeground(Color color) {
+        textLabel.setForeground(color);
+    }
+
 }
