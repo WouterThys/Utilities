@@ -17,10 +17,18 @@ public class ITableBallPanel extends JPanel {
         add(textLabel, BorderLayout.CENTER);
     }
 
+    public void updateWithTableComponent(Component c, int row, boolean isSelected) {
+        updateBackground(c.getBackground(), row, isSelected);
+        updateForeground(c.getForeground());
+    }
 
     public void updateBackground(Color background, int row, boolean isSelected) {
         iconLabel.updateBackground(background, row, isSelected);
         textLabel.updateBackground(background, row, isSelected);
+    }
+
+    public void updateForeground(Color color) {
+        textLabel.setForeground(color);
     }
 
     public void updateBallIcon(ImageIcon imageIcon) {
@@ -33,10 +41,6 @@ public class ITableBallPanel extends JPanel {
 
     public void setText(String text) {
         textLabel.setText(text);
-    }
-
-    public void setForeground(Color color) {
-        textLabel.setForeground(color);
     }
 
 }
