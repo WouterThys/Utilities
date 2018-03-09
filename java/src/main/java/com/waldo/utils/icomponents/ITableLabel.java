@@ -41,6 +41,15 @@ public class ITableLabel extends ILabel {
         textLabel.setOpaque(false);
     }
 
+    public void updateWithTableComponent(Component c, int row, boolean isSelected) {
+        updateBackground(c.getBackground(), row, isSelected);
+        updateForeground(c.getForeground());
+    }
+
+    public void updateForeground(Color foreground) {
+        super.setForeground(foreground);
+    }
+
     public void updateBackground(Color background, int row, boolean isSelected) {
         if (row % 2 == 1 || isSelected) {
             super.setBackground(background);
