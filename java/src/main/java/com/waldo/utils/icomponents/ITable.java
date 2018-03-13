@@ -2,7 +2,6 @@ package com.waldo.utils.icomponents;
 
 import javax.swing.*;
 import javax.swing.table.JTableHeader;
-import javax.swing.table.TableCellRenderer;
 import javax.swing.table.TableColumn;
 import java.awt.*;
 import java.awt.event.MouseEvent;
@@ -123,30 +122,11 @@ public class ITable<T> extends JTable {
     }
 
     public void resizeColumns() {
-        setAutoResizeMode(JTable.AUTO_RESIZE_ALL_COLUMNS);
-
-        for (int column = 0; column < getColumnCount(); column++) {
-            TableColumn tableColumn = getColumnModel().getColumn(column);
-            int preferredWidth = tableColumn.getMinWidth();
-            int maxWidth = tableColumn.getMaxWidth();
-            if (maxWidth > 500) {
-                maxWidth = 500;
-            }
-
-            for (int row = 0; row < getRowCount(); row++) {
-                TableCellRenderer cellRenderer = getCellRenderer(row, column);
-                Component c = prepareRenderer(cellRenderer, row, column);
-                int width = c.getPreferredSize().width + getIntercellSpacing().width;
-                preferredWidth = Math.max(preferredWidth, width);
-
-                //  We've exceeded the maximum width, no need to check other rows
-                if (preferredWidth >= maxWidth) {
-                    preferredWidth = maxWidth;
-                    break;
-                }
-            }
-
-            tableColumn.setPreferredWidth( preferredWidth );
-        }
+//        this.setAutoResizeMode(JTable.AUTO_RESIZE_OFF);
+//        ITableColumnAdjuster tca = new ITableColumnAdjuster(this);
+//        tca.setColumnDataIncluded(true);
+//        tca.setColumnHeaderIncluded(true);
+//        tca.setOnlyAdjustLarger(false);
+//        tca.adjustColumns();
     }
 }

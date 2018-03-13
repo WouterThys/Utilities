@@ -1,6 +1,7 @@
 package com.waldo.utils.icomponents;
 
 import javax.swing.*;
+import javax.swing.border.Border;
 import java.awt.*;
 
 public class ITableLabel extends ILabel {
@@ -44,6 +45,10 @@ public class ITableLabel extends ILabel {
     public void updateWithTableComponent(Component c, int row, boolean isSelected) {
         updateBackground(c.getBackground(), row, isSelected);
         updateForeground(c.getForeground());
+    }
+
+    public void updateBorder(Border border) {
+        super.setBorder(border);
     }
 
     public void updateForeground(Color foreground) {
