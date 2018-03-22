@@ -366,7 +366,7 @@ public class FileUtils {
         return file;
     }
 
-    public static boolean compareContent(File file1, File file2) {
+    public static boolean contentEquals(File file1, File file2) {
         if (file1 == null || !file1.exists()) return false;
         if (file2 == null || !file2.exists()) return false;
 
