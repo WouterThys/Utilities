@@ -17,6 +17,8 @@ public class Error {
     private final int errorType;
     private final String message;
 
+    private static final ResourceManager imageResource = new ResourceManager("settings/", "Icons.properties");
+
     public Error(int errorType, String message) {
         this.errorType = errorType;
         this.message = message;
@@ -49,15 +51,15 @@ public class Error {
     {
         switch (errorType) {
             case ERROR:
-                return null; // TODOimageResource.readImage("ErrorProvider.ErrorIcon");
+                return imageResource.readImage("error");
             case INFO:
                 return null; //imageResource.readImage("ErrorProvider.InfoIcon");
             case NO_ERROR:
                 return null;
             case WARNING:
-                return null;//imageResource.readImage("ErrorProvider.WarningIcon");
+                return imageResource.readImage("warning");
             default:
-                throw new IllegalArgumentException("Not a valid error type");
+                return null;
         }
     }
 }
