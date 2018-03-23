@@ -7,6 +7,7 @@ import javax.swing.*;
 import javax.swing.filechooser.FileFilter;
 import java.io.*;
 import java.net.URL;
+import java.nio.channels.FileChannel;
 import java.sql.Blob;
 import java.sql.SQLException;
 import java.util.ArrayList;
@@ -363,5 +364,55 @@ public class FileUtils {
         File file = File.createTempFile(fileName, "");
         file.deleteOnExit();
         return file;
+    }
+
+    public static boolean contentEquals(File file1, File file2) {
+        if (file1 == null || !file1.exists()) return false;
+        if (file2 == null || !file2.exists()) return false;
+
+        try {
+            return org.apache.commons.io.FileUtils.contentEquals(file1, file2);
+        } catch (IOException e) {
+            e.printStackTrace();
+            return false;
+        }
+    }
+
+    public static boolean copyContent(File source, File destination) {
+        if (source == null || !source.exists()) return false;
+        if (destination == null || !destination.exists()) return false;
+
+        boolean result = true;
+        FileChannel sourceChannel = null;
+        FileChannel destinationChannel = null;
+
+        try {
+
+            sourceChannel = new FileInputStream(source).getChannel();
+            destinationChannel = new FileOutputStream(destination).getChannel();
+            destinationChannel.transferFrom(sourceChannel, 0, sourceChannel.size());
+
+        } catch (IOException e) {
+            e.printStackTrace();
+           result = false;
+        } finally {
+            if (sourceChannel != null) {
+                try {
+                    sourceChannel.close();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            }
+
+            if (destinationChannel != null) {
+                try {
+                    destinationChannel.close();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            }
+        }
+
+        return result;
     }
 }
