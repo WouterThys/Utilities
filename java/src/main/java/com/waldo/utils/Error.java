@@ -57,7 +57,7 @@ public class Error {
             case NO_ERROR:
                 return null;
             case WARNING:
-                return imageResource.readImage("waring");
+                return imageResource.readImage("warning");
             default:
                 return null;
         }
