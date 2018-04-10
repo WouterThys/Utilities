@@ -23,6 +23,7 @@ public class IconBorder extends AbstractBorder {
     @Override
     public void paintBorder(Component c, Graphics g, int x, int y, int width, int height) {
         originalBorder.paintBorder(c, g, x, y, width, height);
+
         Insets insets = getBorderInsets(c);
         if (icon != null) {
             int by = (c.getHeight() / 2) - (icon.getIconHeight() / 2);
@@ -40,6 +41,6 @@ public class IconBorder extends AbstractBorder {
 
     @Override
     public boolean isBorderOpaque() {
-        return false;
+        return true;
     }
 }
