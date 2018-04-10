@@ -1,6 +1,5 @@
 import com.waldo.utils.GuiUtils;
 import com.waldo.utils.icomponents.ITextField;
-import com.waldo.utils.icomponents.ITextField2;
 
 import javax.swing.*;
 import javax.swing.plaf.nimbus.NimbusLookAndFeel;
@@ -85,11 +84,11 @@ public class ApplicationTest {
     private static JPanel ITextField2Panel() {
         JPanel panel = new JPanel();
 
-        ITextField2 defaultTf = new ITextField2();
-        ITextField2 hintTf = new ITextField2("Hint");
-        ITextField2 disabledTf = new ITextField2(false);
-        ITextField2 errorTf = new ITextField2("Error");
-        ITextField2 warningTf = new ITextField2("Warning");
+        ITextField defaultTf = new ITextField();
+        ITextField hintTf = new ITextField("Hint");
+        ITextField disabledTf = new ITextField(false);
+        ITextField errorTf = new ITextField("Error");
+        ITextField warningTf = new ITextField("Warning");
 
         disabledTf.setText("Disabled");
         errorTf.setError("With error");
@@ -102,7 +101,7 @@ public class ApplicationTest {
         gbc.addLine("Error: ", errorTf);
         gbc.addLine("Waring: ", warningTf);
 
-        panel.setBorder(GuiUtils.createTitleBorder("ITextField2"));
+        panel.setBorder(GuiUtils.createTitleBorder("ITextField"));
 
         return panel;
     }
