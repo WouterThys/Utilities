@@ -9,6 +9,7 @@ public class DateUtils {
     private static final String shortDateAndTimeStr = "--/--/---- --:--";
     private static final String shortDateStr = "--/--/----";
     private static final String shortTimeStr = "--:--";
+    private static final String monthDateStr = "--/--";
     private static final String longDateAndTimeStr = "--- ---, ---- --:--";
     private static final String longDateStr = "--- ---, ----";
     private static final String detailTimeStr = "--:--:--.---";
@@ -16,6 +17,7 @@ public class DateUtils {
     public static final SimpleDateFormat shortDateAndTime = new SimpleDateFormat("dd/MM/YYYY HH:mm");
     private static final SimpleDateFormat sqlDateAndTime = new SimpleDateFormat("YYYY-MM-dd HH:mm:ss");
     public static final SimpleDateFormat shortDate = new SimpleDateFormat("dd/MM/YYYY");
+    public static final SimpleDateFormat monthDate = new SimpleDateFormat("dd/MM");
     private static final SimpleDateFormat shortTime = new SimpleDateFormat("HH:mm:ss");
     private static final SimpleDateFormat detailTime = new SimpleDateFormat("HH:mm:ss.SSS");
 
@@ -69,6 +71,14 @@ public class DateUtils {
             return detailTime.format(date);
         } else {
             return detailTimeStr;
+        }
+    }
+
+    public static String formatMonthDate(Date date) {
+        if (date != null && !date.equals(minDate())) {
+            return monthDate.format(date);
+        } else {
+            return monthDateStr;
         }
     }
 
