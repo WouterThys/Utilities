@@ -46,62 +46,6 @@ public abstract class IDialog extends JDialog implements GuiUtils.GuiInterface, 
         initializeDialog();
     }
 
-//
-//    public IDialog() {
-//        initializeDialog();
-//    }
-//
-//    public IDialog(Frame owner) {
-//        super(owner);
-//        if (owner instanceof Application) {
-//            this.application = (Application) owner;
-//        }
-//        initializeDialog();
-//    }
-//
-//    public IDialog(Frame owner, String title) {
-//        super(owner, title);
-//        if (owner instanceof Application) {
-//            this.application = (Application) owner;
-//        }
-//        initializeDialog();
-//    }
-//
-//    public IDialog(Dialog owner) {
-//        super(owner);
-//        initializeDialog();
-//    }
-//
-//    public IDialog(Dialog owner, String title) {
-//        super(owner, title);
-//        initializeDialog();
-//    }
-//
-//    public IDialog(Window owner) {
-//        super(owner);
-//        initializeDialog();
-//    }
-//
-//    public IDialog(Window owner, ModalityType modalityType) {
-//        super(owner, modalityType);
-//        initializeDialog();
-//    }
-//
-//    public IDialog(Window owner, String title) {
-//        super(owner, title);
-//        initializeDialog();
-//    }
-//
-//    public IDialog(Window owner, String title, ModalityType modalityType) {
-//        super(owner, title, modalityType);
-//        initializeDialog();
-//    }
-//
-//    public IDialog(Window owner, String title, ModalityType modalityType, GraphicsConfiguration gc) {
-//        super(owner, title, modalityType, gc);
-//        initializeDialog();
-//    }
-
     public int showDialog() {
         setLocationRelativeTo(getParent());
         pack();
