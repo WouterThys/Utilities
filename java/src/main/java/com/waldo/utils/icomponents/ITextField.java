@@ -81,6 +81,7 @@ public class ITextField extends JTextField implements FocusListener {
         }
         bindingListener = new IBindingListener(this, listener, fieldName);
         this.getDocument().addDocumentListener(bindingListener);
+        bindingListener.setEnabled(true);
     }
 
     public void addEditedListener(IEditedListener listener, String fieldName, Class fieldClass) {
