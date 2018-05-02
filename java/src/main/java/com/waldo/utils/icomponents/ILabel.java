@@ -7,30 +7,51 @@ import java.awt.geom.AffineTransform;
 
 public class ILabel extends JLabel {
 
-    private String statusInfo = "";
+    private Color originalColor;
 
     public ILabel() {
         super();
+        init();
     }
 
     public ILabel(Icon image) {
         super(image);
+        init();
     }
 
     public ILabel(Icon image, int horizontalAlignment) {
         super(image, horizontalAlignment);
+        init();
     }
 
     public ILabel(String text) {
         super(text);
+        init();
     }
 
     public ILabel(String text, Icon icon, int horizontalAlignment) {
         super(text, icon, horizontalAlignment);
+        init();
     }
 
     public ILabel(String text, int horizontalAlignment) {
         super(text, horizontalAlignment);
+        init();
+    }
+
+    private void init() {
+        originalColor = getForeground();
+    }
+
+    @Override
+    public void setEnabled(boolean enabled) {
+        super.setEnabled(enabled);
+
+        if (isEnabled()) {
+            super.setForeground(Color.gray);
+        } else {
+            super.setForeground(originalColor);
+        }
     }
 
     public void setFontSize(int size) {
