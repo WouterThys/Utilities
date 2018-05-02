@@ -1,6 +1,7 @@
 package com.waldo.utils;
 
 import javax.swing.*;
+import javax.swing.border.Border;
 import javax.swing.border.TitledBorder;
 import java.awt.*;
 
@@ -74,6 +75,13 @@ public class GuiUtils {
         }
 
         return toolBar;
+    }
+
+    public static Border createInlineTitleBorder(String name) {
+        Border bGreyLine = BorderFactory.createLineBorder(Color.LIGHT_GRAY, 1, true);
+        TitledBorder titledBorder = BorderFactory.createTitledBorder(bGreyLine, name, TitledBorder.RIGHT, TitledBorder.TOP);
+        titledBorder.setTitleColor(Color.gray);
+        return titledBorder;
     }
 
     public static TitledBorder createTitleBorder(String name) {
