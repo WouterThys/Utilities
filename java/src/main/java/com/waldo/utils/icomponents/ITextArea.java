@@ -3,7 +3,6 @@ package com.waldo.utils.icomponents;
 import com.waldo.utils.Error;
 
 import javax.swing.*;
-import javax.swing.text.DefaultEditorKit;
 import javax.swing.text.DefaultStyledDocument;
 import javax.swing.text.StyledDocument;
 import java.awt.*;
@@ -41,12 +40,13 @@ public class ITextArea extends JTextArea implements FocusListener {
         this.hint = hint;
         this.addFocusListener(this);
 
+        TextUtils.addCopyPastCutPopupToField(this);
+
         this.setForeground(Color.gray);
 //        this.setBorder(normalBorder);
         Font f = this.getFont();
         this.setFont(new Font(f.getName(), Font.BOLD, 15));
         showingHint = !hint.isEmpty();
-        addMenu();
     }
 
     public void addEditedListener(IEditedListener listener, String fieldName) {
@@ -186,26 +186,5 @@ public class ITextArea extends JTextArea implements FocusListener {
 //            this.setBorder(originalBorder);
             this.setToolTipText(originalToolTip);
         }
-    }
-
-    private void addMenu() {
-        JPopupMenu menu = new JPopupMenu();
-
-        Action cut = new DefaultEditorKit.CutAction();
-        cut.putValue(Action.NAME, "Cut");
-        cut.putValue(Action.ACCELERATOR_KEY, KeyStroke.getKeyStroke("control X"));
-        menu.add( cut );
-
-        Action copy = new DefaultEditorKit.CopyAction();
-        copy.putValue(Action.NAME, "Copy");
-        copy.putValue(Action.ACCELERATOR_KEY, KeyStroke.getKeyStroke("control C"));
-        menu.add( copy );
-
-        Action paste = new DefaultEditorKit.PasteAction();
-        paste.putValue(Action.NAME, "Paste");
-        paste.putValue(Action.ACCELERATOR_KEY, KeyStroke.getKeyStroke("control V"));
-        menu.add( paste );
-
-        setComponentPopupMenu(menu);
     }
 }

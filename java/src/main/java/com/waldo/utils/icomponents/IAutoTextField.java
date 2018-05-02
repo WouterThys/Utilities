@@ -79,6 +79,9 @@ public class IAutoTextField extends ITextField {
         isCaseSensitive = false;
         isStrict = true;
         autoComboBox = null;
+
+        TextUtils.addCopyPastCutPopupToField(this);
+
         if (list == null) {
             throw new IllegalArgumentException("values can not be null");
         } else {
