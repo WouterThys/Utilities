@@ -23,7 +23,8 @@ public class ITextField extends JTextField implements FocusListener {
     private Error error;
 
     public ITextField(String hint, IEditedListener editedListener, String fieldName, boolean enabled, int columns) {
-        super(columns);
+        super("");
+        this.setColumns(columns);
         this.setEnabled(enabled);
         if (hint == null) {
             hint = "";
