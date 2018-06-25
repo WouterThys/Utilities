@@ -3,6 +3,7 @@ package com.waldo.utils;
 import java.sql.Date;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
+import java.util.Comparator;
 
 public class DateUtils {
 
@@ -157,5 +158,19 @@ public class DateUtils {
         Calendar calendar = Calendar.getInstance();
         calendar.setTime(date);
         return calendar.get(Calendar.YEAR);
+    }
+
+
+    private static class DateComparator implements Comparator<java.util.Date> {
+        @Override
+        public int compare(java.util.Date d1, java.util.Date d2) {
+            if (d1 == null) {
+                d1 = DateUtils.minDate();
+            }
+            if (d2 == null) {
+                d2 = DateUtils.minDate();
+            }
+            return d1.compareTo(d2);
+        }
     }
 }

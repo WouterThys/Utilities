@@ -1,5 +1,7 @@
 package com.waldo.utils;
 
+import org.apache.commons.validator.routines.UrlValidator;
+
 import java.awt.*;
 import java.io.File;
 import java.io.IOException;
@@ -41,5 +43,10 @@ public class OpenUtils {
             }
         }
         return false;
+    }
+
+    public static boolean isValidUrl(String url) {
+        UrlValidator validator = new UrlValidator();
+        return validator.isValid(url);
     }
 }
