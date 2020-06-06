@@ -84,14 +84,17 @@ public class IBindingListener implements DocumentListener {
                         switch (fieldClass.getTypeName()) {
                             case "int":
                                 if (newVal.isEmpty()) newVal = "0";
+                                newVal = newVal.replace(',', '.');
                                 setMethod.invoke(guiObject, Integer.valueOf(newVal));
                                 break;
                             case "double":
                                 if (newVal.isEmpty()) newVal = "0";
+                                newVal = newVal.replace(',', '.');
                                 setMethod.invoke(guiObject, Double.valueOf(newVal));
                                 break;
                             case "float":
                                 if (newVal.isEmpty()) newVal = "0";
+                                newVal = newVal.replace(',', '.');
                                 setMethod.invoke(guiObject, Float.valueOf(newVal));
                                 break;
                             case "long":
